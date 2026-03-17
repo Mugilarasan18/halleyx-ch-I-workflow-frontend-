@@ -1,0 +1,121 @@
+.modal-wide {
+  max-width: 900px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.rules-container {
+  min-height: 300px;
+}
+
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rules-header {
+  display: grid;
+  grid-template-columns: 80px 1fr 150px 100px;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-tertiary);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--primary-lavender-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.rule-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 150px 100px;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  align-items: center;
+  transition: all 0.2s ease;
+  background-color: var(--bg-primary);
+}
+
+.rule-row:hover {
+  border-color: var(--primary-lavender-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.rule-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.rule-col-wide {
+  flex: 1;
+  min-width: 0;
+}
+
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-lavender) 0%, var(--accent-purple) 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.condition-code {
+  display: block;
+  padding: 0.5rem;
+  background-color: var(--bg-tertiary);
+  border-radius: 0.375rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8125rem;
+  color: var(--primary-lavender-dark);
+  word-break: break-all;
+  margin-bottom: 0.25rem;
+}
+
+.rule-description {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .modal-wide {
+    max-width: 95%;
+    margin: 1rem;
+  }
+
+  .rules-header,
+  .rule-row {
+    grid-template-columns: 60px 1fr;
+    gap: 0.75rem;
+  }
+
+  .rule-col:nth-child(3),
+  .rule-col:nth-child(4),
+  .rules-header span:nth-child(3),
+  .rules-header span:nth-child(4) {
+    display: none;
+  }
+
+  .rule-row::after {
+    content: '';
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.5rem;
+  }
+}
