@@ -68,10 +68,10 @@ const UserDashboard = () => {
 
     // MODIFIED: Status Text Helper
     const getStatusText = (status) => {
-        if (status === 'COMPLETED') return 'APPROVED ✅';
-        if (status === 'REJECTED') return 'REJECTED ❌';
-        if (status === 'PENDING_ADMIN') return 'Waiting for Admin Approval ⏳';
-        if (status === 'PENDING_CEO') return 'Waiting for CEO Approval ⏳';
+        if (status === 'COMPLETED') return 'APPROVED ';
+        if (status === 'REJECTED') return 'REJECTED ';
+        if (status === 'PENDING_ADMIN') return 'Waiting for Admin Approval ';
+        if (status === 'PENDING_CEO') return 'Waiting for CEO Approval ';
         return status;
     };
 
