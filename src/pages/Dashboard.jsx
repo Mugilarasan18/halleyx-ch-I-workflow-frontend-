@@ -35,7 +35,6 @@ const Dashboard = () => {
       setRecentWorkflows(workflowsRes.data.content || []);
       setRecentExecutions(executionsRes.data.content || []);
 
-      // Calculate stats
       const workflows = workflowsRes.data.content || [];
       const executions = executionsRes.data.content || [];
 

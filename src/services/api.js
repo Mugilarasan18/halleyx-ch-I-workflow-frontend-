@@ -9,7 +9,6 @@ const api = axios.create({
   },
 });
 
-// Workflows
 export const workflowService = {
   getAll: (page = 0, size = 10, search = '') => {
     const params = { page, size };
@@ -22,7 +21,6 @@ export const workflowService = {
   delete: (id) => api.delete(`/workflows/${id}`),
 };
 
-// Steps
 export const stepService = {
   getByWorkflowId: (workflowId) => api.get(`/workflows/${workflowId}/steps`),
   getById: (stepId) => api.get(`/workflows/_/steps/${stepId}`),
@@ -31,7 +29,6 @@ export const stepService = {
   delete: (stepId) => api.delete(`/workflows/_/steps/${stepId}`),
 };
 
-// Rules
 export const ruleService = {
   getByStepId: (stepId) => api.get(`/steps/${stepId}/rules`),
   create: (stepId, data) => api.post(`/steps/${stepId}/rules`, data),
@@ -39,7 +36,6 @@ export const ruleService = {
   delete: (ruleId) => api.delete(`/steps/_/rules/${ruleId}`),
 };
 
-// Executions
 export const executionService = {
   getAll: (page = 0, size = 10) => api.get('/workflows/executions', { params: { page, size } }),
   getById: (id) => api.get(`/workflows/executions/${id}`),

@@ -7,10 +7,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import CeoDashboard from './pages/CeoDashboard';
 
 function App() {
-  // Role-a state-la vachikkuvom
   const [role, setRole] = useState(localStorage.getItem('role'));
 
-  // Login success aagum podhu indha function-a Login page call pannum
   const handleLoginSuccess = () => {
     setRole(localStorage.getItem('role'));
   };
@@ -20,7 +18,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         
-        {/* Pass the function as a prop to Login */}
         <Route 
           path="/login" 
           element={<Login onLoginSuccess={handleLoginSuccess} />} 
@@ -28,7 +25,6 @@ function App() {
         
         <Route path="/register" element={<Register />} />
         
-        {/* Protected Routes based on 'role' state */}
         <Route 
           path="/user/dashboard" 
           element={role === 'USER' ? <UserDashboard /> : <Navigate to="/login" />} 
@@ -42,7 +38,6 @@ function App() {
           element={role === 'CEO' ? <CeoDashboard /> : <Navigate to="/login" />} 
         />
 
-        {/* Incorrect URL vandha Login-ku anuppu */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>

@@ -14,19 +14,16 @@ const Login = ({ onLoginSuccess }) => {
             const response = await api.post('/auth/login', { username, password });
             const user = response.data;
             
-            // Role-a uppercase-a mathi save panrom
             const userRole = user.role ? user.role.toUpperCase() : 'USER';
             
             localStorage.setItem('role', userRole);
             localStorage.setItem('userId', user.id);
             localStorage.setItem('username', user.username);
 
-            // IMPORTANT: App.jsx-a update panna trigger panrom
             if (onLoginSuccess) {
                 onLoginSuccess();
             }
 
-            // Correct-aana dashboard-ku redirect panrom
             if (userRole === 'CEO') {
                 navigate('/ceo/dashboard');
             } else if (userRole === 'ADMIN') {

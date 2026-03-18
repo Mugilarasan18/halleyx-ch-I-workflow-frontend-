@@ -25,7 +25,6 @@ const ExecutionDetails = () => {
       const response = await executionService.getById(id);
       setExecution(response.data);
 
-      // Parse logs
       try {
         const parsedLogs = JSON.parse(response.data.logs || '[]');
         setLogs(parsedLogs);
@@ -33,7 +32,6 @@ const ExecutionDetails = () => {
         setLogs([]);
       }
 
-      // Parse input data
       try {
         const parsedData = JSON.parse(response.data.data || '{}');
         setInputData(parsedData);

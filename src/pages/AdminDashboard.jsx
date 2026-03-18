@@ -28,19 +28,16 @@ const AdminDashboard = () => {
         }
     };
 
-    // --- Dynamic Label Logic based on Workflow Context ---
     const getFormattedLabel = (key, workflowName) => {
         const wf = workflowName?.toLowerCase() || "";
         const k = key.toLowerCase();
 
         if (k === 'reason') return "Reason";
         
-        // Duration Logic (Leave / Sick)
         if (wf.includes('leave') || wf.includes('sick') || k === 'leavedays') {
             if (k === 'amount' || k === 'leavedays' || k === 'inputvalue') return "Duration (Days)";
         }
         
-        // Expense Logic (Expense / Travel / Claim)
         if (wf.includes('expense') || wf.includes('travel') || wf.includes('claim')) {
             if (k === 'amount' || k === 'inputvalue') return "Total Amount (₹)";
         }
@@ -86,7 +83,6 @@ const AdminDashboard = () => {
             <Navbar title="Admin Command Center" />
             <div className="container">
                 
-                {/* 1. WORKFLOW CREATOR SECTION */}
                 <div className="card" style={{ borderTop: '5px solid #3498db', marginBottom: '30px' }}>
                     <h3>🛠️ Create New Workflow</h3>
                     {createMsg && <p style={{backgroundColor: '#d4edda', padding: '10px', color: '#155724', borderRadius: '5px'}}>{createMsg}</p>}
@@ -105,9 +101,8 @@ const AdminDashboard = () => {
 
                 <hr style={{margin: '40px 0'}} />
 
-                {/* 2. PENDING SUBMISSIONS TABLE */}
                 <div className="card" style={{ borderTop: '5px solid #f1c40f' }}>
-                    <h3>📥 User Submissions (Waiting for Approval)</h3>
+                    <h3> User Submissions (Waiting for Approval)</h3>
                     {approvalMsg && <p style={{color: 'blue', fontWeight: 'bold', marginBottom: '15px'}}>{approvalMsg}</p>}
                     
                     <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
@@ -130,7 +125,6 @@ const AdminDashboard = () => {
                                         </td>
                                         <td style={{ padding: '12px' }}>
                                             <div style={{ backgroundColor: '#fcfcfc', padding: '15px', borderRadius: '8px', border: '1px solid #eee' }}>
-                                                {/* Workflow Name Header */}
                                                 <div style={{ 
                                                     color: '#2980b9', 
                                                     fontWeight: 'bold', 
@@ -142,10 +136,9 @@ const AdminDashboard = () => {
                                                     display: 'flex',
                                                     alignItems: 'center'
                                                 }}>
-                                                    📋 {req.workflowName || "SYSTEM WORKFLOW"}
+                                                     {req.workflowName || "SYSTEM WORKFLOW"}
                                                 </div>
 
-                                                {/* Dynamic Labels and Data */}
                                                 {req.data ? (
                                                     Object.entries(req.data).map(([key, value]) => (
                                                         <div key={key} style={{ marginBottom: '6px', fontSize: '14px', display: 'flex' }}>

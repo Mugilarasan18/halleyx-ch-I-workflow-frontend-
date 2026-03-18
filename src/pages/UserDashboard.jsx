@@ -27,7 +27,7 @@ const UserDashboard = () => {
 
     useEffect(() => {
         fetchData();
-        const interval = setInterval(fetchData, 10000); // 10 seconds refresh for live updates
+        const interval = setInterval(fetchData, 10000); 
         return () => clearInterval(interval);
     }, []);
 
@@ -55,7 +55,6 @@ const UserDashboard = () => {
         }
     };
 
-    // MODIFIED: Status styling logic for step-by-step approval
     const getStatusStyle = (status) => {
         switch(status) {
             case 'COMPLETED': return { color: 'white', backgroundColor: '#2ecc71', padding: '5px 10px', borderRadius: '4px', fontWeight: 'bold' };
@@ -66,7 +65,6 @@ const UserDashboard = () => {
         }
     };
 
-    // MODIFIED: Status Text Helper
     const getStatusText = (status) => {
         if (status === 'COMPLETED') return 'APPROVED ';
         if (status === 'REJECTED') return 'REJECTED ';
@@ -137,7 +135,6 @@ const UserDashboard = () => {
                             {myRequests.map(req => (
                                 <tr key={req.id} style={{ borderBottom: '1px solid #ddd' }}>
                                     <td style={{ padding: '12px', fontWeight: 'bold' }}>{req.workflowName}</td>
-                                    {/* MODIFIED: Using helper functions for status text and style */}
                                     <td style={{ padding: '12px' }}>
                                         <span style={getStatusStyle(req.status)}>{getStatusText(req.status)}</span>
                                     </td>

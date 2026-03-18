@@ -64,7 +64,7 @@
 .priority-badge {
   display: inline-flex;
   align-items: center;
-  justify-center;
+  justify-content:justify-center;
   width: 32px;
   height: 32px;
   border-radius: 50%;

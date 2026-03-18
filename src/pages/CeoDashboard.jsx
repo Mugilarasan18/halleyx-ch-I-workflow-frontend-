@@ -43,10 +43,8 @@ const CeoDashboard = () => {
             <Navbar title="CEO Dashboard | Strategy & Analytics" />
             <div className="container" style={{ padding: '20px' }}>
                 
-                {/* Loading Indicator */}
                 {loading && <p style={{ color: '#3498db', textAlign: 'right' }}>Updating data...</p>}
 
-                {/* SECTION 1: PENDING FINAL APPROVALS */}
                 <div className="card" style={{ borderTop: '5px solid #e67e22', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
                     <h3 style={{ color: '#d35400' }}> Pending CEO Approvals</h3>
                     
@@ -94,7 +92,6 @@ const CeoDashboard = () => {
                     </div>
                 </div>
 
-                {/* SECTION 2: SYSTEM-WIDE ANALYTICS TABLE */}
                 <div className="card" style={{ marginTop: '30px', borderTop: '5px solid #2c3e50', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
                     <h3 style={{ color: '#2c3e50' }}> Full System Analytics & History</h3>
                     
@@ -121,7 +118,6 @@ const CeoDashboard = () => {
                                         <tr key={h.id} style={{ borderBottom: '1px solid #ddd' }}>
                                             <td style={{ padding: '12px' }}>{h.triggeredBy}</td>
 
-                                            {/* ✅ FIXED HERE */}
                                             <td style={{ padding: '12px' }}>
                                                 <strong>{h.workflowName || h.workflow?.name || 'N/A'}</strong>
                                             </td>
